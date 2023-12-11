@@ -42,6 +42,20 @@ class TestListCalculator:
         with pytest.raises(TypeError):
             ListCalculator(list_1, list_2)
 
+    def test_init_invalid_type_list_3(self):
+        """ Инициализация списков с проверкой типа данных """
+        list_1 = ["not an int", 2, 3]
+        list_2 = [1, 2, 3]
+        with pytest.raises(TypeError):
+            ListCalculator(list_1, list_2)
+
+    def test_init_invalid_type_list_4(self):
+        """ Инициализация списков с проверкой типа данных """
+        list_1 = [1, 2, 3]
+        list_2 = ["not an int", 2, 3]
+        with pytest.raises(TypeError):
+            ListCalculator(list_1, list_2)
+
     def test_avg(self):
         """ Среднее арифметическое списка """
         list_1 = [1, 2, 3, 4, 5]
@@ -73,3 +87,7 @@ class TestListCalculator:
         calc = ListCalculator(list_1, list_2)
         result = calc.avg_comparison()
         assert result == "Средние значения равны"
+
+
+if __name__ == "__main__":
+    pytest.main()
